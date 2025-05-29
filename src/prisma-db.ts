@@ -100,6 +100,9 @@ export const getRecipe = async (id: string) => {
   await new Promise((resolve) => setTimeout(resolve, 1500));
   return prisma.recipe.findUnique({
     where: { id },
+    include: {
+      instructions: true,
+    },
   });
 };
 

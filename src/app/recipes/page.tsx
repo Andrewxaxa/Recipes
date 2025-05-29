@@ -1,12 +1,14 @@
 import { IRecipe } from "@/interfaces/recipe.interface";
 import { getRecipes } from "@/prisma-db";
-import Recipes from "@/components/recipes/recipes";
+import { RecipeList } from "@/components/recipes/recipe-list";
 
 const RecipesPage = async () => {
   const recipes: IRecipe[] = await getRecipes();
   console.log("recipes:", recipes);
 
-  return <Recipes recipes={recipes} />;
+  // throw new Error("Test error");
+
+  return <RecipeList recipes={recipes} />;
 };
 
 export default RecipesPage;
